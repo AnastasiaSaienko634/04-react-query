@@ -3,9 +3,17 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import "modern-normalize";
 import App from "./components/App/App";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { QueryClient } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
+const queryClient = new QueryClient();
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
+    <QueryClientProvider client={queryClient}>
+      <App />
+    </QueryClientProvider>
+    <ReactQueryDevtools initialIsOpen={false} />
   </StrictMode>
 );
