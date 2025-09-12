@@ -43,6 +43,7 @@ export default function App() {
 
   const handleMovie = async (query: string) => {
     setQuery(query);
+    setCurrentPage(1);
   };
 
   return (
